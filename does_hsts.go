@@ -38,15 +38,11 @@ func main () {
     for _, site := range os.Args[1:] {
         fmt.Printf("[+] checking whether %v supports HSTS: ", site)
     
-        switch res := check_site(site) ; res {
-        case -1:
-            fmt.Println("SSL failure!")
-        case 0:
-            fmt.Println("not supported")
-        case 1:
-            fmt.Println("ok")
-        default:
-            fmt.Println("oh god there was so much blood")
+        switch res := Check(site) ; res {
+        case SSLerror: fmt.Println("SSL failure!")
+        case HSTSno: fmt.Println("not supported")
+        case HSTSyes: fmt.Println("ok")
+        default: fmt.Println("oh god there was so much blood")
         }
     }
 }
