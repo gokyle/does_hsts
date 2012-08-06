@@ -10,5 +10,14 @@ Example usage:
 [+] checking whether google.com supports HSTS: not supported
 [+] checking whether reddit.com supports HSTS: SSL failure!
 
+Installing:
+does_hsts requires the go compiler to be installed. See the Go language
+website's instructions [2] for installation. To build, run 'make';
+installation defaults to /usr/local/bin and can be installed with
+'make install'. The PREFIX environment variable can be used to change
+the installation directory: 'PREFIX=${HOME} make install' would install
+to ${HOME}/bin.
+
 
 [1] https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
+[2] http://golang.org/doc/install
