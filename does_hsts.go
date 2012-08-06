@@ -6,20 +6,29 @@ import (
     "os"
 )
 
-func check_site (site string) int {
-    res := 0
+const (
+    SSLerror = iota
+    HSTSyes
+    HSTSno
+)
+
+// check_site expects a host and prepends 'https://' onto it to create
+// an HTTPS url. A GET request is performed on this URL, and the
+// returned headers are checked for the HSTS header.
+func Check (site string) int {
+    res := HSTSno
     url := "https://" + site
 
     resp, err := http.Get(url)
     if err != nil {
-        return -1
+        return SSLerror
+    } else {
+        defer resp.Body.Close()
     }
-
-    defer resp.Body.Close()
 
     _, ok := resp.Header["Strict-Transport-Security"]
     if ok {
-        res = 1
+        res = HSTSyes
     }
     
     return res
