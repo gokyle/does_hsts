@@ -1,0 +1,14 @@
+DOES_HSTS
+=========
+
+This is a very simple Go command line utility that, given a list of sites
+to check, will determine whether those sites support HSTS [1]. 
+
+Example usage:
+<monalisa: ~> $ does_hsts conformal.com google.com reddit.com
+[+] checking whether conformal.com supports HSTS: ok
+[+] checking whether google.com supports HSTS: not supported
+[+] checking whether reddit.com supports HSTS: SSL failure!
+
+
+[1] https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
