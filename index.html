@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>does_hsts by gokyle</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>does_hsts</h1>
+        <h2>Example Go program to determine whether sites support HSTS.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/gokyle/does_hsts/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/gokyle/does_hsts/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/gokyle/does_hsts" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <p>This is a very simple Go command line utility that, given a list of sites
+to check, will determine whether those sites support 
+<a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">HSTS</a>.</p>
+
+<h3>Example usage</h3>
+
+<div class="highlight"><pre>&lt;monalisa: ~&gt; <span class="nv">$ </span>does_hsts conformal.com google.com reddit.com
+<span class="o">[</span>+<span class="o">]</span> checking whether conformal.com supports HSTS: ok
+<span class="o">[</span>+<span class="o">]</span> checking whether google.com supports HSTS: not supported
+<span class="o">[</span>+<span class="o">]</span> checking whether reddit.com supports HSTS: SSL failure!
+</pre></div>
+
+<h3>Installing</h3>
+
+<p>does_hsts requires the go compiler to be installed. See the Go language
+website's <a href="http://golang.org/doc/install">instructions</a> for installation. 
+To build, run <code>make</code>; installation defaults to /usr/local/bin and can be 
+installed with <code>make install</code>. The <code>PREFIX</code> environment variable can be 
+used to change the installation directory: <code>PREFIX=${HOME} make install</code> 
+would install to <code>${HOME}/bin</code>.</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
